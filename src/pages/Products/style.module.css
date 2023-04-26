@@ -1,0 +1,33 @@
+/* ========= Products ========*/
+
+.ltn__search-widget form {
+    position: relative;
+}
+
+.ltn__search-widget .form-control {
+    height: 60px;
+    background-color: var(--sec-bag);
+    font-weight: 600;
+    font-size: 14px;
+    display: inline-block;
+    border-radius: 0;
+}
+
+.ltn__search-widget .form-control:focus {
+    box-shadow: 0 0 0;
+    border: 1.5px solid var(--main-color);
+}
+
+.ltn__search-widget button {
+    position: absolute;
+    right: 0;
+    height: 100%;
+    padding: 0 20px;
+    color: var(--sec-bag);
+    border: 1px solid;
+    background-color: var(--main-color);
+    border-color: var(--main-color);
+    -webkit-transition: all 0.3s ease 0s;
+    -o-transition: all 0.3s ease 0s;
+    transition: all 0.3s ease 0s;
+}

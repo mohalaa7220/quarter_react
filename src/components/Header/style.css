@@ -1,0 +1,214 @@
+/*============= Navbar =================*/
+
+.navbar {
+    box-shadow: var(--shadow);
+    padding: 1.5rem 0;
+}
+
+.navbar-active {
+    position: fixed;
+    top: 0;
+    z-index: 222;
+    width: 100%;
+    -webkit-box-shadow: 0 10px 50px 0 rgb(46 56 220 / 20%);
+    box-shadow: 0 10px 50px 0 rgb(46 56 220 / 20%);
+    background-color: #fff;
+    padding: 1.35rem;
+    transition: var(--transition);
+}
+
+.dropdown-toggle::after {
+    margin-left: 0;
+    vertical-align: .15em;
+}
+
+.dropdown:hover .dropdown-menu {
+    display: block;
+}
+
+.dropdown-menu {
+    border: none;
+    border-top: 3px solid var(--main-color);
+    border-radius: 0;
+    box-shadow: rgba(17, 17, 26, 0.1) 0px 0px 16px;
+    min-width: 250px;
+    animation: opacity .3s linear;
+}
+
+.dropdown-menu.show {
+    animation: opacity .3s linear;
+}
+
+.dropdown-menu li {
+    line-height: 1.7;
+    margin-bottom: 8px;
+    transition: .3s linear
+}
+
+.dropdown-menu li:hover {
+    background-color: transparent;
+    padding-left: 5px;
+}
+
+.dropdown-menu li a {
+    text-transform: lowercase;
+    color: var(--sec-color);
+    transition: .3s linear
+}
+
+.dropdown-menu li:hover a {
+    background-color: transparent;
+    color: var(--main-color);
+}
+
+@keyframes opacity {
+    0% {
+        opacity: 0;
+    }
+    50% {
+        opacity: .7;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+.user::after {
+    content: '';
+    display: none;
+}
+
+.navbar .navbar-brand img {
+    max-width: 100%;
+}
+
+.navbar .nav-item {
+    margin: 0 5px;
+}
+
+.navbar .nav-item .nav-link {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--paragraph-color);
+    text-transform: uppercase;
+}
+
+.header-right {
+    display: flex;
+    align-items: baseline;
+    justify-content: flex-end;
+}
+
+.header-right>div {
+    margin: 0 5px;
+    padding: .5rem .75rem;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    cursor: pointer;
+    transition: all .3s linear;
+    color: var(--gray);
+}
+
+.header-right>div svg {
+    font-size: 1.5rem;
+}
+
+.header-right>div:hover {
+    background-color: var(--main-color);
+    color: var(--sec-bag);
+}
+
+.sub-logo {
+    display: none;
+}
+
+#menu-icon {
+    display: none;
+}
+
+
+/* ==================== Responsive NavBar ==============*/
+
+.active_menu {
+    display: block !important;
+    animation: left .3s linear;
+}
+
+@keyframes left {
+    0% {
+        opacity: 0;
+        left: -800px;
+    }
+    50% {
+        left: -200px;
+        opacity: .7;
+    }
+    100% {
+        left: 0%;
+        opacity: 1;
+    }
+}
+
+@media only screen and (max-width: 1000px) {
+    .navbar {
+        padding: 1.15rem;
+    }
+    .sub-logo {
+        display: block;
+        margin-bottom: 3rem;
+    }
+    .menu {
+        display: none;
+        left: 0;
+        right: auto;
+        top: 0;
+        position: fixed;
+        background: #ffffff;
+        width: 20rem;
+        padding: 2rem;
+        min-height: 100vh;
+        overflow: auto;
+        z-index: 2222;
+        box-shadow: 0 10px 50px 0 rgb(46 56 220 / 20%);
+    }
+    ul.navbar-nav {
+        flex-direction: column !important;
+    }
+    .navbar .nav-item {
+        margin-bottom: .75rem;
+    }
+    #menu-icon {
+        display: block;
+    }
+}
+
+@media only screen and (max-width: 780px) {
+    .navbar {
+        padding: 1rem 0 .75rem;
+    }
+}
+
+@media only screen and (max-width: 650px) {
+    .navbar .row {
+        display: block;
+    }
+    .navbar-brand {
+        display: flex;
+        justify-content: center;
+        margin: 0;
+        padding: 0;
+        margin-bottom: 1.25rem;
+    }
+    .header-right {
+        justify-content: center;
+    }
+}
+
+.cart {
+    position: relative;
+}
+
+.cart span {
+    position: absolute;
+    top: 0;
+    font-weight: bold;
+}

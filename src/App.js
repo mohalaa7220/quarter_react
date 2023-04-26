@@ -1,0 +1,19 @@
+import React from "react";
+import Header from "./components/Header/Header";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Home from "./pages/Home";
+import Products from "./pages/Products/products";
+
+const App = () => {
+  return (
+    <Router>
+      <Header />
+      <Routes>
+        <Route exact path="/" element={<Home />} />
+        <Route path="/products" element={<Products />} />
+      </Routes>
+    </Router>
+  );
+};
+
+export default App;
