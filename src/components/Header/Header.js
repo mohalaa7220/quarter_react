@@ -11,7 +11,7 @@ import { selectCartItemCount } from "../../state/cartSlice";
 const Header = () => {
   const [itemCount, setItemCount] = useState(0);
   const cartItemCount = useSelector(selectCartItemCount);
-  // const { user, isAuth } = useSelector((state) => state.auth);
+  const { user, isAuth } = useSelector((state) => state.auth);
 
   useEffect(() => {
     setItemCount(cartItemCount);
@@ -101,24 +101,28 @@ const Header = () => {
                     <AiOutlineUser />
                   </a>
                   <ul className="dropdown-menu">
-                    <li>
-                      <Link className="dropdown-item" to="/login">
-                        Signing
-                      </Link>
-                    </li>
-                    <li>
-                      <Link className="dropdown-item" to="/">
-                        Register
-                      </Link>
-                    </li>
-                    <li>
-                      <hr className="dropdown-divider" />
-                    </li>
-                    <li>
-                      <Link className="dropdown-item" to="/">
-                        Profile
-                      </Link>
-                    </li>
+                    {user && !isAuth ? (
+                      <>
+                        <li>
+                          <Link className="dropdown-item" to="/login">
+                            Login
+                          </Link>
+                        </li>
+                        <li>
+                          <Link className="dropdown-item" to="/register">
+                            Register
+                          </Link>
+                        </li>
+                      </>
+                    ) : (
+                      <>
+                        <li>
+                          <Link className="dropdown-item" to="/">
+                            Profile
+                          </Link>
+                        </li>
+                      </>
+                    )}
                   </ul>
                 </div>
               </div>

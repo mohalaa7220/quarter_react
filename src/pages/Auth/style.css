@@ -28,6 +28,10 @@
     border: 1px solid var(--main-color);
 }
 
+.forget-password {
+    margin-top: 1rem;
+}
+
 .forget-password a {
     color: var(--paragraph-color);
 }

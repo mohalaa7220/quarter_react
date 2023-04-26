@@ -99,15 +99,17 @@ body::-webkit-scrollbar {
 }
 
 .btn2 {
-    background-color: var(--main-color) !important;
+    background-color: var(--main-color);
     color: #fff;
-    padding: 1rem 1.5rem !important;
-    border-radius: 0 !important;
-    position: relative !important;
-    transition: all .2s linear !important;
-    z-index: 1 !important;
-    border: 1px solid var(--main-color) !important;
-    font-weight: 700 !important;
+    padding: 1rem 1.5rem;
+    border-radius: 0;
+    position: relative;
+    transition: all .2s linear;
+    z-index: 1;
+    border: 1px solid var(--main-color);
+    font-weight: 700;
+    display: inline-block;
+    text-decoration: none;
 }
 
 .btn2::after {
@@ -124,7 +126,10 @@ body::-webkit-scrollbar {
 
 .btn2:hover::after {
     width: 100%;
-    color: #000;
+}
+
+.btn2:hover {
+    color: #000 !important;
 }
 
 .btn_loading {
@@ -161,7 +166,7 @@ body::-webkit-scrollbar {
 }
 
 .breadcrumb-parent {
-    /* background-image: url("../images/image_top.jpg"); */
+    background-image: url("../public/breadcrumb.jpg");
     background-size: cover;
     background-repeat: no-repeat;
 }

@@ -60,9 +60,7 @@ const Login = () => {
                   <div className="btn-wrapper mt-0">
                     <button
                       className={
-                        loading
-                          ? "btn2 btn_loading btn"
-                          : "`btn2 btn btn-block`"
+                        loading ? "btn2 btn_loading " : "btn2  btn-block"
                       }
                       type="submit"
                     >
@@ -81,7 +79,7 @@ const Login = () => {
             <div className="col-md-6">
               <h6>No HAVE AN ACCOUNT?</h6>
               <div className="btn-wrapper mt-0">
-                <Link to="/register" className="btn2 btn btn-block">
+                <Link to="/register" className="btn2 btn-block">
                   CREATE ACCOUNT
                 </Link>
               </div>

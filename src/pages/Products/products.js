@@ -6,6 +6,7 @@ import { setPage } from "../../state/pagination";
 import Paginate from "../../components/ReactPaginate/ReactPaginate";
 import SkeletonLoading from "../../components/LazyLoaing/SkeletonLoading";
 import { GoSearch } from "react-icons/go";
+import Breadcrumb from "../../components/Breadcrumb/Breadcrumb";
 const ProductsParent = lazy(() => import("../../components/Products/Products"));
 
 const Products = () => {
@@ -25,34 +26,37 @@ const Products = () => {
   };
 
   return (
-    <section className="products pt-7">
-      <div className="container">
-        <div className="row">
-          <div className="ltn__search-widget mb-5">
-            <form action="#">
-              <input
-                type="search"
-                name="search"
-                className="form-control"
-                placeholder="Search your keyword..."
-              />
-              <button type="submit">
-                <GoSearch />
-              </button>
-            </form>
+    <>
+      <Breadcrumb title="Shop" />
+      <section className="products pt-7">
+        <div className="container">
+          <div className="row">
+            <div className="ltn__search-widget mb-5">
+              <form action="#">
+                <input
+                  type="search"
+                  name="search"
+                  className="form-control"
+                  placeholder="Search your keyword..."
+                />
+                <button type="submit">
+                  <GoSearch />
+                </button>
+              </form>
+            </div>
+            {loading ? (
+              <SkeletonLoading />
+            ) : (
+              <Suspense fallback={<SkeletonLoading />}>
+                <ProductsParent data={data} />
+              </Suspense>
+            )}
           </div>
-          {loading ? (
-            <SkeletonLoading />
-          ) : (
-            <Suspense fallback={<SkeletonLoading />}>
-              <ProductsParent data={data} />
-            </Suspense>
-          )}
-        </div>
 
-        <Paginate pageCount={pageCount} handlePageClick={handlePageClick} />
-      </div>
-    </section>
+          <Paginate pageCount={pageCount} handlePageClick={handlePageClick} />
+        </div>
+      </section>
+    </>
   );
 };
 
