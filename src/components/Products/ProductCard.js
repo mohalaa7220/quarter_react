@@ -1,4 +1,5 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
+import "./style.css";
 import news from "../../assets/news_1.jpg";
 import { BiExpand, BiBed, BiLocationPlus } from "react-icons/bi";
 import { RiHeart3Line } from "react-icons/ri";
@@ -9,7 +10,7 @@ import { useDispatch } from "react-redux";
 import { addItem } from "../../state/cartSlice";
 import Swal from "sweetalert2";
 import { Link } from "react-router-dom";
-import "./style.css";
+import { LazyLoadImage } from "react-lazy-load-image-component";
 
 const ProductCard = ({ product }) => {
   const dispatch = useDispatch();
@@ -25,7 +26,7 @@ const ProductCard = ({ product }) => {
     <div className="col-lg-4 col-md-6 col-sm-12">
       <div className="card card-product">
         <Link className="top-card" to={`/products/${product.id}`}>
-          <img src={news} alt="Logo" loading="lazy" />
+          <LazyLoadImage alt="Logo" src={news} effect="opacity" />
           <ul className="product-detail">
             <li>
               <BiLocationPlus />

@@ -1,12 +1,21 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { AiOutlineUser, AiOutlineShoppingCart } from "react-icons/ai";
 import { BiMenuAltRight } from "react-icons/bi";
 import logo from "../..//assets/logo.png";
 import "./style.css";
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
+import { selectCartItemCount } from "../../state/cartSlice";
 
 const Header = () => {
+  const [itemCount, setItemCount] = useState(0);
+  const cartItemCount = useSelector(selectCartItemCount);
+  // const { user, isAuth } = useSelector((state) => state.auth);
+
+  useEffect(() => {
+    setItemCount(cartItemCount);
+  }, [cartItemCount]);
   return (
     <nav className="navbar navbar-expand-lg">
       <div className="container d-block">
@@ -93,7 +102,7 @@ const Header = () => {
                   </a>
                   <ul className="dropdown-menu">
                     <li>
-                      <Link className="dropdown-item" to="/">
+                      <Link className="dropdown-item" to="/login">
                         Signing
                       </Link>
                     </li>
@@ -116,6 +125,7 @@ const Header = () => {
 
               <div className="cart" id="btn-cart">
                 <AiOutlineShoppingCart />
+                <span>{itemCount}</span>
               </div>
               <div className="menu-icon" id="menu-icon">
                 <BiMenuAltRight />

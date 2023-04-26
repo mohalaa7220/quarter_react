@@ -98,19 +98,19 @@ body::-webkit-scrollbar {
     }
 }
 
-.btn {
-    background-color: var(--main-color);
+.btn2 {
+    background-color: var(--main-color) !important;
     color: #fff;
-    padding: 1rem 1.5rem;
-    border-radius: 0;
-    position: relative;
-    transition: all .2s linear;
-    z-index: 1;
-    border: 1px solid var(--main-color);
-    font-weight: 700;
+    padding: 1rem 1.5rem !important;
+    border-radius: 0 !important;
+    position: relative !important;
+    transition: all .2s linear !important;
+    z-index: 1 !important;
+    border: 1px solid var(--main-color) !important;
+    font-weight: 700 !important;
 }
 
-.btn::after {
+.btn2::after {
     content: '';
     position: absolute;
     left: 0;
@@ -122,9 +122,8 @@ body::-webkit-scrollbar {
     transition: all .2s linear;
 }
 
-.btn:hover::after {
+.btn2:hover::after {
     width: 100%;
-    border: 1px solid var(--paragraph-color);
     color: #000;
 }
 
