@@ -195,3 +195,19 @@ body::-webkit-scrollbar {
     overflow: hidden;
     display: block;
 }
+
+
+/* --------- */
+
+.featured {
+    background-color: var(--sec-bag);
+}
+
+.services-heading {
+    margin-bottom: 3rem;
+}
+
+.services-heading h1 {
+    font-family: var(--heading-font);
+    font-weight: 800;
+}
