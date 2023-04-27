@@ -86,7 +86,7 @@ li:is(.date, .comments) span {
 }
 
 .property_detail_list>ul {
-    padding: 30px 50px 40px;
+    padding: 30px 50px 40px !important;
     margin: 0;
     border-right: 1px solid #d1dae0;
 }

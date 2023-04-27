@@ -14,11 +14,16 @@ const Products = () => {
   const { data, count, loading } = useSelector((state) => state.products);
   const { page } = useSelector((state) => state.pagination);
   const [pageCount, setPageCount] = useState(0);
+  const [name, setName] = useState("");
 
   useEffect(() => {
-    dispatch(fetchProducts());
+    if (name.trim() !== "") {
+      dispatch(fetchProducts(name));
+    } else {
+      dispatch(fetchProducts());
+    }
     setPageCount(Math.ceil(count / 6));
-  }, [count, dispatch, page]);
+  }, [count, dispatch, page, name]);
 
   const handlePageClick = (data) => {
     let currentPage = data.selected + 1;
@@ -36,6 +41,8 @@ const Products = () => {
                 <input
                   type="search"
                   name="search"
+                  value={name}
+                  onChange={(e) => setName(e.target.value)}
                   className="form-control"
                   placeholder="Search your keyword..."
                 />

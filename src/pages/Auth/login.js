@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { LoginAuth } from "../../state/authSlice";
 import { toast } from "react-toastify";
 import { Link } from "react-router-dom";
+import BreadCrumb from "../../components/Breadcrumb/Breadcrumb";
 const Login = () => {
   const dispatch = useDispatch();
   const { loading, message } = useSelector((state) => state.auth);
@@ -24,6 +25,7 @@ const Login = () => {
 
   return (
     <>
+      <BreadCrumb title="Login" />
       <section className="content pt-7">
         <div className="container">
           <h1 className="text-center">

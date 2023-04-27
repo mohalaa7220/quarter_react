@@ -1,6 +1,5 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import "./style.css";
-import news from "../../assets/news_1.jpg";
 import { BiExpand, BiBed, BiLocationPlus } from "react-icons/bi";
 import { RiHeart3Line } from "react-icons/ri";
 import { FiPlusCircle } from "react-icons/fi";
@@ -11,6 +10,7 @@ import { addItem } from "../../state/cartSlice";
 import Swal from "sweetalert2";
 import { Link } from "react-router-dom";
 import { LazyLoadImage } from "react-lazy-load-image-component";
+import news from "../../assets/news_1.webp";
 
 const ProductCard = ({ product }) => {
   const dispatch = useDispatch();

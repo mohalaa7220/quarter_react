@@ -1,0 +1,139 @@
+/* ==================== Banner ==============*/
+
+.banner {
+    background-color: #F2F6F7;
+    padding-bottom: 20px;
+}
+
+.banner .content-slide {
+    margin-left: 80px;
+}
+
+.banner .content-slide h1 {
+    font-family: var(--heading-font);
+    font-size: 4.5rem;
+    margin-bottom: 1.5rem;
+    font-weight: 700;
+}
+
+.banner .content-slide .desc_banner {
+    padding-left: 30px;
+    border-left: 1px solid #576466;
+    max-width: 450px;
+    margin-bottom: 1.5rem;
+}
+
+.banner .content-slide .desc_banner P {
+    color: var(--paragraph-color);
+    margin-bottom: 1.5em;
+    line-height: 1.8;
+    -webkit-hyphens: auto;
+    -moz-hyphens: auto;
+    -ms-hyphens: auto;
+    hyphens: auto;
+}
+
+.banner img {
+    width: 100%;
+}
+
+.carousel-control-next,
+.carousel-control-prev {
+    width: 2.5%;
+    background: var(--main-color);
+    top: 50%;
+    height: 10%;
+    visibility: hidden;
+    transform: scale(0);
+}
+
+.carousel-control-next-icon,
+.carousel-control-prev-icon {
+    margin-top: 0;
+    transition: var(--transition);
+    transform: scale(0);
+    padding: 1rem;
+    border-radius: 5px;
+    visibility: hidden;
+}
+
+.banner:hover .carousel-control-next,
+.banner:hover .carousel-control-prev {
+    visibility: visible;
+    transform: scale(1);
+}
+
+.banner:hover .carousel-control-next-icon,
+.banner:hover .carousel-control-prev-icon {
+    transform: scale(1);
+    visibility: visible;
+}
+
+
+/* ==================== Responsive Banner ==============*/
+
+@media only screen and (max-width: 1413px) {
+    .banner .content-slide h1 {
+        font-size: 3.3rem;
+    }
+}
+
+@media only screen and (max-width: 1085px) {
+    .banner .content-slide h1 {
+        font-size: 2.3rem;
+    }
+}
+
+@media only screen and (max-width: 979px) {
+    .banner .content-slide .desc_banner {
+        padding-left: 15px;
+    }
+    .banner .content-slide .desc_banner p {
+        font-size: 14px;
+    }
+}
+
+@media only screen and (max-width: 812px) {
+    .banner .content-slide {
+        margin-left: 35px;
+    }
+    .banner .content-slide h1 {
+        font-size: 1.75rem;
+    }
+}
+
+@media only screen and (max-width: 767px) {
+    .banner {
+        padding-top: 1rem;
+    }
+    .banner .content-slide {
+        margin-bottom: 2.3rem;
+    }
+    .banner .content-slide h1 {
+        font-size: 2.3rem;
+    }
+}
+
+@media only screen and (max-width: 455px) {
+    .btn2 {
+        padding: .75rem 1rem;
+    }
+}
+
+@media only screen and (max-width: 380px) {
+    .banner .content-slide {
+        margin-left: 15px;
+    }
+    .banner .content-slide h1 {
+        font-size: 1.3rem;
+    }
+}
+
+@media only screen and (max-width: 349px) {
+    .banner .content-slide .desc_banner p {
+        font-size: 12.3px;
+    }
+    .banner .btn {
+        padding: .75rem 1rem;
+    }
+}

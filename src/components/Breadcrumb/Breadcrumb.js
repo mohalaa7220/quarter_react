@@ -8,7 +8,7 @@ const Breadcrumb = ({ title }) => {
   return (
     <section className="breadcrumb-parent pt-7">
       <div className="container">
-        <h2>Shop</h2>
+        <h2>{title}</h2>
         <nav style={navStyle} aria-label="breadcrumb">
           <ol className="breadcrumb">
             <li className="breadcrumb-item">

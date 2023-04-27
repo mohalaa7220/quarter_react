@@ -3,9 +3,11 @@ import axiosInstance from "../utils/axiosInstance";
 
 export const fetchProducts = createAsyncThunk(
   "products/fetch",
-  async (_, { getState }) => {
+  async (name = "", { getState }) => {
     const { page } = getState().pagination;
-    const response = await axiosInstance.get(`product/?page=${page}`);
+    const response = await axiosInstance.get(
+      `product/?page=${page}&name=${name}`
+    );
     return response.data;
   }
 );
