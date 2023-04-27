@@ -8,12 +8,14 @@ import Register from "./pages/Auth/register";
 import ProductDetails from "./pages/Products/productDetails";
 import CartSlide from "./components/CartSlide/CartSlide";
 import { useState } from "react";
+import HeaderTop from "./components/Header/HeaderTop";
 
 const App = () => {
   const [right, setRight] = useState(false);
   console.log(right);
   return (
     <Router>
+      <HeaderTop />
       <Header right={right} setRight={setRight} />
       <CartSlide right={right} setRight={setRight} />
       <Routes>

@@ -212,3 +212,49 @@
     top: 0;
     font-weight: bold;
 }
+
+
+/*============= header-top =================*/
+
+.header-top {
+    background-color: var(--header-bg);
+    color: #fff;
+    padding: .5rem 0;
+}
+
+.header-top ul {
+    display: flex;
+    margin-bottom: 0;
+}
+
+.header-top ul>li {
+    display: flex;
+    align-items: center;
+    margin-right: 15px;
+}
+
+.header-top ul>li svg {
+    color: var(--main-color);
+    margin-right: 7px;
+}
+
+.header-top ul>li a {
+    color: #fff;
+    font-size: .85rem;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.social-parent {
+    display: flex;
+    justify-content: end;
+}
+
+.social {
+    display: flex;
+    align-items: center;
+}
+
+.social svg {
+    margin-right: 7px;
+}

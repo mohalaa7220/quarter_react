@@ -5,28 +5,28 @@ const SkeletonLoading = () => {
   return (
     <>
       <div className="col-md-6">
-        <SkeletonTheme baseColor="#F1EFF1" highlightColor="#efeeee">
+        <SkeletonTheme baseColor="#ddddd7" highlightColor="#efeeee">
           <p>
             <Skeleton count={4.5} />
           </p>
         </SkeletonTheme>
       </div>
       <div className="col-md-6">
-        <SkeletonTheme baseColor="#F1EFF1" highlightColor="#efeeee">
+        <SkeletonTheme baseColor="#ddddd7" highlightColor="#efeeee">
           <p>
             <Skeleton count={4.5} />
           </p>
         </SkeletonTheme>
       </div>
       <div className="col-md-6">
-        <SkeletonTheme baseColor="#F1EFF1" highlightColor="#efeeee">
+        <SkeletonTheme baseColor="#ddddd7" highlightColor="#efeeee">
           <p>
             <Skeleton count={4.5} />
           </p>
         </SkeletonTheme>
       </div>
       <div className="col-md-6">
-        <SkeletonTheme baseColor="#F1EFF1" highlightColor="#efeeee">
+        <SkeletonTheme baseColor="#ddddd7" highlightColor="#efeeee">
           <p>
             <Skeleton count={4.5} />
           </p>
