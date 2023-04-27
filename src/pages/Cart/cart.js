@@ -1,0 +1,48 @@
+import React from "react";
+import Breadcrumb from "../../components/Breadcrumb/Breadcrumb";
+import "./style.css";
+import { useDispatch, useSelector } from "react-redux";
+import { removeItem, selectCartItemCount } from "../../state/cartSlice";
+
+const Cart = () => {
+  const cartProduct = JSON.parse(localStorage.getItem("cart"));
+  const totalItem = useSelector(selectCartItemCount);
+  const dispatch = useDispatch();
+
+  const deleteProduct = (product) => {
+    dispatch(removeItem(product));
+  };
+
+  return (
+    <>
+      <Breadcrumb title="Cart" />
+      <section className="pt-7">
+        <div className="container">
+          <div className="totalItem">
+            <h3>Shopping Cart</h3>
+            <span>{totalItem} Items</span>
+          </div>
+          <div className="cart_parent">
+            {cartProduct.map((item) => (
+              <div className="cart_item" key={item.id}>
+                <span>{item.name}</span>
+                <div className="price">
+                  <h6>{item.price}</h6>
+                  <small>x{item.quantity}</small>
+                </div>
+                <button
+                  className="btn btn-danger"
+                  onClick={() => deleteProduct(item)}
+                >
+                  X
+                </button>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+    </>
+  );
+};
+
+export default Cart;

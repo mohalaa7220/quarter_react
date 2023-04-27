@@ -33,9 +33,8 @@ export const cartSlice = createSlice({
           state.splice(index, 1);
         }
       }
-      if (isBrowser) {
-        localStorage.setItem("cart", JSON.stringify(state));
-      }
+
+      localStorage.setItem("cart", JSON.stringify(state));
     },
     updateQuantity: (state, action) => {
       const index = state.findIndex((item) => item.id === action.payload.id);

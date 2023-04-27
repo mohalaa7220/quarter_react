@@ -1,6 +1,7 @@
 import React from "react";
 import "./style.css";
 import img1 from "../../assets/news_1.webp";
+import { Link } from "react-router-dom";
 
 const CartSlide = ({ right, setRight }) => {
   return (
@@ -26,12 +27,12 @@ const CartSlide = ({ right, setRight }) => {
       </div>
 
       <div className="bottom-cart">
-        <a className="btn2" href="cart.html">
+        <Link className="btn2" to="/cart">
           View Cart
-        </a>
-        <a className="btn2" href="checkout.html">
+        </Link>
+        <Link className="btn2" to="/cart">
           CheckOut
-        </a>
+        </Link>
       </div>
     </div>
   );

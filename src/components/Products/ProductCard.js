@@ -70,7 +70,7 @@ const ProductCard = ({ product }) => {
 
           <ul className="product-action">
             <li>
-              <Link href={`/products/${product.id}`} title="Quick View">
+              <Link to={`/products/${product.id}`} title="Quick View">
                 <BiExpand />
               </Link>
             </li>

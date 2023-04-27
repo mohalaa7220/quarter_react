@@ -9,10 +9,10 @@ import ProductDetails from "./pages/Products/productDetails";
 import CartSlide from "./components/CartSlide/CartSlide";
 import { useState } from "react";
 import HeaderTop from "./components/Header/HeaderTop";
+import Cart from "./pages/Cart/cart";
 
 const App = () => {
   const [right, setRight] = useState(false);
-  console.log(right);
   return (
     <Router>
       <HeaderTop />
@@ -22,6 +22,7 @@ const App = () => {
         <Route exact path="/" element={<Home />} />
         <Route path="/products" element={<Products />} />
         <Route path="/products/:productId" element={<ProductDetails />} />
+        <Route path="/cart" element={<Cart />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
       </Routes>
