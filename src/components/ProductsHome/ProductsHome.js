@@ -22,15 +22,15 @@ const ProductsHome = () => {
           <h6 class="sec-heading">Properties</h6>
           <h1>Featured Listings</h1>
         </div>
-        {loading ? (
-          <SkeletonLoading />
-        ) : (
-          <div className="row">
+        <div className="row">
+          {loading ? (
+            <SkeletonLoading />
+          ) : (
             <Suspense fallback={<SkeletonLoading />}>
               <ProductsParent data={data.slice(0, 6)} />
             </Suspense>
-          </div>
-        )}
+          )}
+        </div>
       </div>
     </section>
   );

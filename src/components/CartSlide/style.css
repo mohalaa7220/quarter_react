@@ -1,0 +1,131 @@
+/*============= Cart Slide =================*/
+
+.cart-slide {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    opacity: 0;
+    z-index: 222;
+    background: #fff;
+    padding: 2rem;
+    height: 100%;
+    overflow: hidden;
+    box-shadow: 0 10px 50px 0 rgb(46 56 220 / 20%);
+    transition: all .3s linear;
+    overflow-y: scroll;
+}
+
+.cart-slide .heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 2px solid #eee;
+    margin-bottom: 1rem;
+    padding-bottom: 1rem;
+}
+
+.cart-slide .heading h6 {
+    color: var(--paragraph-color);
+    font-weight: 700;
+    flex: 1;
+}
+
+.cart-slide .heading span {
+    cursor: pointer;
+    font-weight: 700;
+    font-size: 1.25rem;
+    padding: 15px;
+    flex: 1;
+    text-align: end;
+}
+
+.cart-slide .heading span:hover {
+    color: var(--main-color);
+}
+
+.cart-slide .content {
+    padding-bottom: 1rem;
+    border-bottom: 2px solid #eee;
+    margin-bottom: 1rem;
+}
+
+.card-cart img {
+    max-width: 6rem;
+}
+
+.card-cart {
+    display: flex;
+    padding-bottom: 1.25rem;
+    margin-bottom: 1.25rem;
+    border-bottom: 2px solid #eee;
+}
+
+.card-cart:last-child {
+    border: none;
+}
+
+.card-cart .info {
+    display: flex;
+    flex-direction: column;
+    margin-left: 14px;
+}
+
+.card-cart .info a {
+    color: var(--header-bg);
+    font-weight: 800;
+    transition: all .3s ease-in-out;
+    font-size: .9rem;
+}
+
+.card-cart .info a:hover {
+    color: var(--main-color);
+}
+
+.card-cart .info .total {
+    color: var(--paragraph-color);
+    margin-top: .3rem;
+}
+
+.sub-total {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 2px solid #eee;
+    padding-bottom: 1.5rem;
+}
+
+.sub-total h5 {
+    font-weight: 800;
+    font-family: var(--heading-font);
+    font-size: 1rem;
+}
+
+.sub-total span {
+    color: var(--main-color);
+    font-weight: 900;
+}
+
+.bottom-cart {
+    margin-top: 1.5rem;
+    padding-bottom: 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.bottom-cart .btn2 {
+    margin-bottom: 1rem;
+}
+
+.bottom-cart .btn2:last-child {
+    background-color: #071c1f;
+    border: var(--header-bg);
+}
+
+
+/*=========== Global Classes =========*/
+
+.right {
+    right: 0;
+    opacity: 1;
+}

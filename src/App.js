@@ -6,11 +6,16 @@ import Products from "./pages/Products/products";
 import Login from "./pages/Auth/login";
 import Register from "./pages/Auth/register";
 import ProductDetails from "./pages/Products/productDetails";
+import CartSlide from "./components/CartSlide/CartSlide";
+import { useState } from "react";
 
 const App = () => {
+  const [right, setRight] = useState(false);
+  console.log(right);
   return (
     <Router>
-      <Header />
+      <Header right={right} setRight={setRight} />
+      <CartSlide right={right} setRight={setRight} />
       <Routes>
         <Route exact path="/" element={<Home />} />
         <Route path="/products" element={<Products />} />

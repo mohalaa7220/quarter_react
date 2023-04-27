@@ -8,16 +8,35 @@ import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { selectCartItemCount } from "../../state/cartSlice";
 
-const Header = () => {
+const Header = ({ right, setRight }) => {
   const [itemCount, setItemCount] = useState(0);
+  const [activeBack, setActiveBack] = useState(false);
   const cartItemCount = useSelector(selectCartItemCount);
   const { user, isAuth } = useSelector((state) => state.auth);
 
+  const changeBackground = () => {
+    if (window.scrollY >= 66) {
+      setActiveBack(true);
+    } else {
+      setActiveBack(false);
+    }
+  };
+
   useEffect(() => {
     setItemCount(cartItemCount);
+    changeBackground();
+    // adding the event when scroll change Logo
+    window.addEventListener("scroll", changeBackground);
   }, [cartItemCount]);
+
   return (
-    <nav className="navbar navbar-expand-lg">
+    <nav
+      className={
+        !activeBack
+          ? `navbar navbar-expand-lg`
+          : `navbar navbar-expand-lg navbar-active`
+      }
+    >
       <div className="container d-block">
         <div className="row">
           <div className="col">
@@ -127,7 +146,11 @@ const Header = () => {
                 </div>
               </div>
 
-              <div className="cart" id="btn-cart">
+              <div
+                className="cart"
+                id="btn-cart"
+                onClick={() => setRight(!right)}
+              >
                 <AiOutlineShoppingCart />
                 <span>{itemCount}</span>
               </div>
