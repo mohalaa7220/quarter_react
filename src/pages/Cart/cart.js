@@ -22,23 +22,33 @@ const Cart = () => {
             <h3>Shopping Cart</h3>
             <span>{totalItem} Items</span>
           </div>
-          <div className="cart_parent">
-            {cartProduct.map((item) => (
-              <div className="cart_item" key={item.id}>
-                <span>{item.name}</span>
-                <div className="price">
-                  <h6>{item.price}</h6>
-                  <small>x{item.quantity}</small>
-                </div>
-                <button
-                  className="btn btn-danger"
-                  onClick={() => deleteProduct(item)}
-                >
-                  X
-                </button>
+          {cartProduct.length === 0 ? (
+            <>
+              <h1 className="text-center text-danger fw-bold">
+                Your Cart Is Empty
+              </h1>
+            </>
+          ) : (
+            <>
+              <div className="cart_parent">
+                {cartProduct.map((item) => (
+                  <div className="cart_item" key={item.id}>
+                    <span>{item.name}</span>
+                    <div className="price">
+                      <h6>{item.price}</h6>
+                      <small>x{item.quantity}</small>
+                    </div>
+                    <button
+                      className="btn btn-danger"
+                      onClick={() => deleteProduct(item)}
+                    >
+                      X
+                    </button>
+                  </div>
+                ))}
               </div>
-            ))}
-          </div>
+            </>
+          )}
         </div>
       </section>
     </>

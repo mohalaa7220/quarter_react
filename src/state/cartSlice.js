@@ -19,9 +19,8 @@ export const cartSlice = createSlice({
       } else {
         state[index].quantity += 1;
       }
-      if (isBrowser) {
         localStorage.setItem("cart", JSON.stringify(state));
-      }
+
     },
     removeItem: (state, action) => {
       const { id } = action.payload;
