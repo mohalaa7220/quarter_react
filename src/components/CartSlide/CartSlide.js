@@ -18,7 +18,7 @@ const CartSlide = ({ right, setRight }) => {
       </div>
       <div className="content">
         {cartProduct.map((product) => (
-          <div className="card-cart">
+          <div className="card-cart" key={product.id}>
             <img src={img1} alt="Cart Img" />
             <div className="info">
               <a href="product_details.html">{product.name}</a>

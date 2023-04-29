@@ -3,10 +3,12 @@ import axiosInstance from "../utils/axiosInstance";
 
 export const fetchProducts = createAsyncThunk(
   "products/fetch",
-  async (name = "", { getState }) => {
+  async ({ name = "", state = "" }, { getState }) => {
     const { page } = getState().pagination;
     const response = await axiosInstance.get(
-      `product/?page=${page}&name=${name}`
+      `product/?page=${page}${name ? `&name=${name}` : ""}${
+        state ? `&state=${state}` : ""
+      }`
     );
     return response.data;
   }

@@ -1,0 +1,31 @@
+.widget {
+    padding: 10px 17px;
+    border: 2px solid #ededed;
+}
+
+.content-head {
+    margin-top: 25px;
+    margin-bottom: 15px;
+    font-size: 20px;
+    font-weight: 700;
+    border-left: 2px solid var(--main-color);
+    padding-left: 10px;
+}
+
+label {
+    color: var(--paragraph-color);
+    font-weight: 600;
+}
+
+.form-check-input:checked {
+    background-color: var(--main-color);
+    border: none;
+}
+
+.form-check {
+    margin-bottom: 8px;
+}
+
+.form-check-input[type=checkbox] {
+    border-radius: 0;
+}
