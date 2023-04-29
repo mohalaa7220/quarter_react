@@ -19,18 +19,38 @@ const Products = () => {
   const [pageCount, setPageCount] = useState(0);
   const [name, setName] = useState("");
   const [state, setState] = useState(null);
+  const [selectedOptions, setSelectedOptions] = useState([]);
+  const selectAmenities = selectedOptions.join(", ");
   const debouncedState = useDebounce(state, 1000);
   const debouncedName = useDebounce(name, 1000);
-  const [selectedOptions, setSelectedOptions] = useState([]);
+  const debouncedAmenities = useDebounce(selectAmenities, 1000);
+  console.log(selectAmenities !== "");
 
   useEffect(() => {
-    if (debouncedName.trim() !== "" || debouncedState !== "") {
-      dispatch(fetchProducts({ name: debouncedName, state: debouncedState }));
+    if (
+      debouncedName.trim() !== "" ||
+      debouncedState !== "" ||
+      debouncedAmenities !== ""
+    ) {
+      dispatch(
+        fetchProducts({
+          name: debouncedName,
+          state: debouncedState,
+          amenities: debouncedAmenities,
+        })
+      );
     } else {
       dispatch(fetchProducts());
     }
     setPageCount(Math.ceil(count / 6));
-  }, [count, dispatch, page, debouncedName, debouncedState]);
+  }, [
+    count,
+    dispatch,
+    page,
+    debouncedName,
+    debouncedState,
+    debouncedAmenities,
+  ]);
 
   const handlePageClick = (data) => {
     let currentPage = data.selected + 1;

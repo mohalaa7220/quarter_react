@@ -35,7 +35,6 @@ const AmenitiesFilters = ({ selectedOptions, setSelectedOptions }) => {
           </label>
         </div>
       ))}
-      <div>Selected options: {selectedOptions.join(", ")}</div>
     </div>
   );
 };
