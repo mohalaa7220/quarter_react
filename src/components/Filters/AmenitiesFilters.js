@@ -1,10 +1,22 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import axiosInstance from "../../utils/axiosInstance";
 import "./style.css";
 const AmenitiesFilters = ({ selectedOptions, setSelectedOptions }) => {
-  const options = [
-    { value: "gym", label: "Gym" },
-    { value: "wifi", label: "WIFI" },
-  ];
+  const [amenities, setAmenities] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axiosInstance("product/amenities");
+        const data = await response.data;
+        setAmenities(data);
+        setIsLoading(false);
+      } catch (error) {
+        console.error(error);
+      }
+    };
+    fetchData();
+  }, []);
 
   const handleOptionChange = (event) => {
     const value = event.target.value;
@@ -17,24 +29,32 @@ const AmenitiesFilters = ({ selectedOptions, setSelectedOptions }) => {
   return (
     <div>
       <h4 className="content-head">Amenities</h4>
-      {options.map((option) => (
-        <div className="form-check" key={option.value}>
-          <input
-            className="form-check-input"
-            type="checkbox"
-            value={option.value}
-            id={`option-${option.value}`}
-            checked={selectedOptions.includes(option.value)}
-            onChange={handleOptionChange}
-          />
-          <label
-            className="form-check-label"
-            htmlFor={`option-${option.value}`}
-          >
-            {option.label}
-          </label>
+      {isLoading ? (
+        <div className="spinner-border text-secondary" role="status">
+          <span className="visually-hidden">Loading...</span>
         </div>
-      ))}
+      ) : (
+        <>
+          {amenities.map((option) => (
+            <div className="form-check" key={option.id}>
+              <input
+                className="form-check-input"
+                type="checkbox"
+                value={option.name}
+                id={`option-${option.id}`}
+                checked={selectedOptions.includes(option.name)}
+                onChange={handleOptionChange}
+              />
+              <label
+                className="form-check-label"
+                htmlFor={`option-${option.id}`}
+              >
+                {option.name}
+              </label>
+            </div>
+          ))}
+        </>
+      )}
     </div>
   );
 };

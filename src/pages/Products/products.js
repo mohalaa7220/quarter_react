@@ -10,6 +10,7 @@ import Breadcrumb from "../../components/Breadcrumb/Breadcrumb";
 import useDebounce from "../../utils/useDebounce";
 import StateFilters from "../../components/Filters/StateFilters";
 import AmenitiesFilters from "../../components/Filters/AmenitiesFilters";
+import PriceFilters from "../../components/Filters/PriceFilters";
 const ProductsParent = lazy(() => import("../../components/Products/Products"));
 
 const Products = () => {
@@ -20,11 +21,11 @@ const Products = () => {
   const [name, setName] = useState("");
   const [state, setState] = useState(null);
   const [selectedOptions, setSelectedOptions] = useState([]);
-  const selectAmenities = selectedOptions.join(", ");
+  const [price, setPrice] = useState("");
+  const selectAmenities = selectedOptions.join(",");
   const debouncedState = useDebounce(state, 1000);
   const debouncedName = useDebounce(name, 1000);
   const debouncedAmenities = useDebounce(selectAmenities, 1000);
-  console.log(selectAmenities !== "");
 
   useEffect(() => {
     if (
@@ -88,6 +89,7 @@ const Products = () => {
                   selectedOptions={selectedOptions}
                   setSelectedOptions={setSelectedOptions}
                 />
+                <PriceFilters price={price} setPrice={setPrice} />
               </div>
             </div>
 
@@ -112,4 +114,4 @@ const Products = () => {
   );
 };
 
-export default Products;
+export default React.memo(Products);

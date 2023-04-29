@@ -23,7 +23,7 @@ const ProductCard = ({ product }) => {
   }
 
   return (
-    <div className="col-lg-4 col-md-6 col-sm-12">
+    <div className="col-lg-6 col-md-6 col-sm-12">
       <div className="card card-product">
         <Link className="top-card" to={`/products/${product.id}`}>
           <LazyLoadImage alt="Logo" src={news} effect="opacity" />

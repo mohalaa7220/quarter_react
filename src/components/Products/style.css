@@ -65,6 +65,8 @@ ul.product-detail>li h6 {
     width: 100%;
     filter: brightness(.85);
     transition: all .3s linear;
+    aspect-ratio: 16/9;
+    object-fit: cover;
 }
 
 .card-product .top-card:hover img {
