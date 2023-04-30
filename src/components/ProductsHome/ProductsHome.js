@@ -1,15 +1,15 @@
 import React, { useEffect, lazy, Suspense } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchProducts } from "../../state/productSlice";
+import { fetchLastProducts } from "../../state/productSlice";
 import SkeletonLoading from "../LazyLoaing/SkeletonLoading";
 const ProductsParent = lazy(() => import("../Products/Products"));
 
 const ProductsHome = () => {
   const dispatch = useDispatch();
-  const { data, loading } = useSelector((state) => state.products);
+  const { lastProducts, loading } = useSelector((state) => state.products);
 
   useEffect(() => {
-    dispatch(fetchProducts());
+    dispatch(fetchLastProducts());
   }, [dispatch]);
 
   return (
@@ -27,7 +27,7 @@ const ProductsHome = () => {
             <SkeletonLoading />
           ) : (
             <Suspense fallback={<SkeletonLoading />}>
-              <ProductsParent data={data.slice(0, 6)} />
+              <ProductsParent grid={true} data={lastProducts} />
             </Suspense>
           )}
         </div>

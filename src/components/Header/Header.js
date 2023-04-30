@@ -120,7 +120,7 @@ const Header = ({ right, setRight }) => {
                     <AiOutlineUser />
                   </a>
                   <ul className="dropdown-menu">
-                    {!user && isAuth ? (
+                    {user.length === 0 || isAuth ? (
                       <>
                         <li>
                           <Link className="dropdown-item" to="/login">

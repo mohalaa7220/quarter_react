@@ -3,25 +3,29 @@ import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { LoginAuth } from "../../state/authSlice";
 import { toast } from "react-toastify";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import BreadCrumb from "../../components/Breadcrumb/Breadcrumb";
 const Login = () => {
   const dispatch = useDispatch();
-  const { loading, message } = useSelector((state) => state.auth);
+  const { loading, message, isAuth } = useSelector((state) => state.auth);
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    dispatch(LoginAuth({ email, password }));
+    dispatch(LoginAuth({ email: "m@gmail.com", password: "123456" }));
   };
 
   useEffect(() => {
     if (message) {
       toast.success(`${message}`);
     }
-  }, [message]);
+    if (isAuth) {
+      window.location = "/";
+    }
+  }, [message, isAuth, navigate]);
 
   return (
     <>
@@ -45,7 +49,7 @@ const Login = () => {
                     type="email"
                     name="email"
                     placeholder="Email*"
-                    value={email}
+                    value={"m@gmail.com"}
                     onChange={(e) => {
                       setEmail(e.target.value);
                     }}
@@ -54,7 +58,7 @@ const Login = () => {
                     type="password"
                     name="password"
                     placeholder="Password*"
-                    value={password}
+                    value={"123456"}
                     onChange={(e) => {
                       setPassword(e.target.value);
                     }}

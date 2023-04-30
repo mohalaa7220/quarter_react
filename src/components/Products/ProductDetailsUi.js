@@ -1,26 +1,51 @@
+import { useState } from "react";
 import "./product_details.css";
 import { MdDateRange } from "react-icons/md";
 import { FaRegCommentDots } from "react-icons/fa";
 import { BiBed } from "react-icons/bi";
 import { BsCheck } from "react-icons/bs";
 import Moment from "react-moment";
-
+import BookProduct from "../BookProduct";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchBookProduct } from "../../state/productSlice";
+import { toast } from "react-toastify";
+import { useEffect } from "react";
+import { useNavigate } from "react-router";
 const ProductDetailsUi = ({ product }) => {
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [message, setMessage] = useState("");
+  const dispatch = useDispatch();
+  const messageUpload = useSelector((state) => state.products.message);
+  const { loadingBook } = useSelector((state) => state.products);
+  const { isAuth } = useSelector((state) => state.auth);
+  const navigate = useNavigate();
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (!isAuth) {
+      toast.error("You must be logged in");
+      setTimeout(() => {
+        navigate("/login");
+      }, 1500);
+      return;
+    }
+    dispatch(
+      fetchBookProduct({ id: product.id, formData: { name, email, message } })
+    );
+  };
+
+  useEffect(() => {
+    if (messageUpload) {
+      toast.success(`${messageUpload}`);
+    }
+  }, [messageUpload]);
+
   return (
     <>
       <section className="gallery">
         <div className="container-fluid p-0 m-0">
-          <div className="gallery-slide">
-            {/* <img src="images/details.jpg" alt="Gallery" />
-          <img src="images/details2.jpg" alt="Gallery" />
-          <img src="images/details3.jpg" alt="Gallery" />
-          <img src="images/details.jpg" alt="Gallery" />
-          <img src="images/details2.jpg" alt="Gallery" />
-          <img src="images/details3.jpg" alt="Gallery" />
-          <img src="images/details.jpg" alt="Gallery" />
-          <img src="images/details2.jpg" alt="Gallery" />
-          <img src="images/details3.jpg" alt="Gallery" /> */}
-          </div>
+          <div className="gallery-slide"></div>
         </div>
       </section>
 
@@ -131,26 +156,16 @@ const ProductDetailsUi = ({ product }) => {
             </div>
 
             <div className="col-lg-4">
-              <div className="right_side">
-                <div className="widget">
-                  <h4 className="content-head">Drop Message For Book</h4>
-                  <form action="#">
-                    <input type="text" name="name" placeholder="Your Name*" />
-                    <input
-                      type="text"
-                      name="email"
-                      placeholder="Your e-Mail*"
-                    />
-                    <textarea
-                      name="message"
-                      placeholder="Write Message..."
-                    ></textarea>
-                    <button type="submit" className="btn2">
-                      Send Message
-                    </button>
-                  </form>
-                </div>
-              </div>
+              <BookProduct
+                name={name}
+                setName={setName}
+                email={email}
+                setEmail={setEmail}
+                message={message}
+                setMessage={setMessage}
+                handleSubmit={handleSubmit}
+                loadingBook={loadingBook}
+              />
             </div>
           </div>
         </div>

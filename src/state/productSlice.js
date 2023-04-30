@@ -14,6 +14,14 @@ export const fetchProducts = createAsyncThunk(
   }
 );
 
+export const fetchLastProducts = createAsyncThunk(
+  "lastProducts/fetch",
+  async () => {
+    const response = await axiosInstance.get(`product/last_products`);
+    return response.data;
+  }
+);
+
 export const fetchProductDetails = createAsyncThunk(
   "productDetails/fetch",
   async (id) => {
@@ -22,14 +30,28 @@ export const fetchProductDetails = createAsyncThunk(
   }
 );
 
+export const fetchBookProduct = createAsyncThunk(
+  "bookProduct/fetch",
+  async ({ id, formData }) => {
+    const response = await axiosInstance.post(
+      `product/book_product/${id}`,
+      formData
+    );
+    return response.data;
+  }
+);
+
 const productsSlice = createSlice({
   name: "products",
   initialState: {
     data: [],
+    lastProducts: [],
     productDetails: [],
     error: null,
     loading: false,
+    loadingBook: false,
     count: 0,
+    message: null,
   },
   reducers: {},
   extraReducers: (builder) => {
@@ -47,6 +69,20 @@ const productsSlice = createSlice({
         state.error = action.error.message;
       });
 
+    // lastProducts
+    builder
+      .addCase(fetchLastProducts.pending, (state) => {
+        state.loading = true;
+      })
+      .addCase(fetchLastProducts.fulfilled, (state, action) => {
+        state.loading = false;
+        state.lastProducts = action.payload;
+      })
+      .addCase(fetchLastProducts.rejected, (state, action) => {
+        state.loading = true;
+        state.error = action.error.message;
+      });
+
     // Product Details
     builder
       .addCase(fetchProductDetails.pending, (state) => {
@@ -58,6 +94,20 @@ const productsSlice = createSlice({
       })
       .addCase(fetchProductDetails.rejected, (state, action) => {
         state.loading = true;
+        state.error = action.error.message;
+      });
+
+    // BookProduct
+    builder
+      .addCase(fetchBookProduct.pending, (state) => {
+        state.loadingBook = true;
+      })
+      .addCase(fetchBookProduct.fulfilled, (state, action) => {
+        state.loadingBook = false;
+        state.message = action.payload.message;
+      })
+      .addCase(fetchBookProduct.rejected, (state, action) => {
+        state.loadingBook = true;
         state.error = action.error.message;
       });
   },

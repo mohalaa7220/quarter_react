@@ -12,7 +12,7 @@ import { Link } from "react-router-dom";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import news from "../../assets/news_1.webp";
 
-const ProductCard = ({ product }) => {
+const ProductCard = ({ product, grid }) => {
   const dispatch = useDispatch();
 
   function handleAddToCart() {
@@ -23,7 +23,11 @@ const ProductCard = ({ product }) => {
   }
 
   return (
-    <div className="col-lg-6 col-md-6 col-sm-12">
+    <div
+      className={
+        grid ? `col-lg-4 col-md-6 col-sm-12` : `col-lg-6 col-md-6 col-sm-12`
+      }
+    >
       <div className="card card-product">
         <Link className="top-card" to={`/products/${product.id}`}>
           <LazyLoadImage alt="Logo" src={news} effect="opacity" />

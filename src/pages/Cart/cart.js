@@ -22,7 +22,7 @@ const Cart = () => {
             <h3>Shopping Cart</h3>
             <span>{totalItem} Items</span>
           </div>
-          {cartProduct.length === 0 ? (
+          {cartProduct?.length === 0 ? (
             <>
               <h1 className="text-center text-danger fw-bold">
                 Your Cart Is Empty
@@ -31,7 +31,7 @@ const Cart = () => {
           ) : (
             <>
               <div className="cart_parent">
-                {cartProduct.map((item) => (
+                {cartProduct?.map((item) => (
                   <div className="cart_item" key={item.id}>
                     <span>{item.name}</span>
                     <div className="price">

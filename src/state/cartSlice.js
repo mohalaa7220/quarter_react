@@ -2,10 +2,9 @@ import { createSlice, createSelector } from "@reduxjs/toolkit";
 
 const isBrowser = typeof window !== "undefined";
 
-const initialState =
-  isBrowser && localStorage.getItem("cart")
-    ? JSON.parse(localStorage.getItem("cart"))
-    : [];
+const initialState = localStorage.getItem("cart")
+  ? JSON.parse(localStorage.getItem("cart"))
+  : [];
 
 export const cartSlice = createSlice({
   name: "cart",
@@ -19,8 +18,7 @@ export const cartSlice = createSlice({
       } else {
         state[index].quantity += 1;
       }
-        localStorage.setItem("cart", JSON.stringify(state));
-
+      localStorage.setItem("cart", JSON.stringify(state));
     },
     removeItem: (state, action) => {
       const { id } = action.payload;
