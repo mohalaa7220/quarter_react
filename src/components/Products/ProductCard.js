@@ -16,7 +16,12 @@ const ProductCard = ({ product, grid }) => {
 
   function handleAddToCart() {
     dispatch(
-      addItem({ id: product.id, name: product.name, price: product.price })
+      addItem({
+        id: product.id,
+        name: product.name,
+        price: product.price,
+        img: product.original_image,
+      })
     );
     Swal.fire(`${product.name} to cart`);
   }

@@ -3,6 +3,8 @@ import Breadcrumb from "../../components/Breadcrumb/Breadcrumb";
 import "./style.css";
 import { useDispatch, useSelector } from "react-redux";
 import { removeItem, selectCartItemCount } from "../../state/cartSlice";
+import { LazyLoadImage } from "react-lazy-load-image-component";
+import { Link } from "react-router-dom";
 
 const Cart = () => {
   const cartProduct = JSON.parse(localStorage.getItem("cart"));
@@ -33,7 +35,14 @@ const Cart = () => {
               <div className="cart_parent">
                 {cartProduct?.map((item) => (
                   <div className="cart_item" key={item.id}>
-                    <span>{item.name}</span>
+                    <div className="img_cart">
+                      <LazyLoadImage
+                        src={item.img}
+                        alt={item.name}
+                        effect="blur"
+                      />
+                    </div>
+                    <Link to={`/products/${item.id}`}>{item.name}</Link>
                     <div className="price">
                       <h6>{item.price}</h6>
                       <small>x{item.quantity}</small>

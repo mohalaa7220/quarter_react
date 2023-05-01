@@ -31,12 +31,26 @@
     margin-bottom: 1.2rem;
 }
 
-.cart_item span {
+.cart_item a {
     font-weight: 700;
-    flex: 1;
+    flex: 1 1;
+    color: var(--paragraph-color);
 }
 
 .cart_parent .price {
     display: flex;
     flex: 1;
+}
+
+.img_cart {
+    margin-right: 30px;
+    flex: 1;
+}
+
+.img_cart img {
+    width: 11rem;
+    height: auto;
+    aspect-ratio: 16/11;
+    object-fit: cover;
+    border-radius: 14%;
 }

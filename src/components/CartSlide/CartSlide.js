@@ -4,6 +4,7 @@ import img1 from "../../assets/news_1.webp";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { selectCartTotal } from "../../state/cartSlice";
+import { LazyLoadImage } from "react-lazy-load-image-component";
 
 const CartSlide = ({ right, setRight }) => {
   const cartProduct = JSON.parse(localStorage.getItem("cart"));
@@ -19,7 +20,7 @@ const CartSlide = ({ right, setRight }) => {
       <div className="content">
         {cartProduct?.map((product) => (
           <div className="card-cart" key={product.id}>
-            <img src={img1} alt="Cart Img" />
+            <LazyLoadImage src={product.img} alt={product.name} effect="blur" />
             <div className="info">
               <a href="product_details.html">{product.name}</a>
               <span className="total">

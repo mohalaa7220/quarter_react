@@ -16,7 +16,9 @@ const Comments = ({ id }) => {
   return (
     <section className="pt-5">
       <h2 className="content-head">Customer Reviews</h2>
-      <div className="content-comments">
+      <div
+        className={dataComments?.length === 0 ? "d-none" : "content-comments"}
+      >
         <div className="ltn__comment-inner">
           {loading ? (
             <SkeletonLoading />

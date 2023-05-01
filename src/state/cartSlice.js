@@ -11,10 +11,10 @@ export const cartSlice = createSlice({
   initialState,
   reducers: {
     addItem: (state, action) => {
-      const { id, name, price } = action.payload;
+      const { id, name, price, img } = action.payload;
       const index = state.findIndex((item) => item.id === id);
       if (index === -1) {
-        state.push({ id, name, price, quantity: 1 });
+        state.push({ id, name, price, img, quantity: 1 });
       } else {
         state[index].quantity += 1;
       }

@@ -1,7 +1,7 @@
 .content-comments {
     height: 310px;
     overflow-x: hidden;
-    overflow-y: scroll;
+    overflow-y: auto;
 }
 
 .ltn__comment-inner>ul>li:first-child {
