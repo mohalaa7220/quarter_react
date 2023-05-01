@@ -1,6 +1,5 @@
 import React from "react";
 import "./style.css";
-import img1 from "../../assets/news_1.webp";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { selectCartTotal } from "../../state/cartSlice";
