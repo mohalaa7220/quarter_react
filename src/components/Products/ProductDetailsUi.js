@@ -11,6 +11,7 @@ import { fetchBookProduct } from "../../state/productSlice";
 import { toast } from "react-toastify";
 import { useEffect } from "react";
 import { useNavigate } from "react-router";
+import Comments from "../Comments/Comments";
 const ProductDetailsUi = ({ product }) => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -18,12 +19,16 @@ const ProductDetailsUi = ({ product }) => {
   const dispatch = useDispatch();
   const messageUpload = useSelector((state) => state.products.message);
   const { loadingBook } = useSelector((state) => state.products);
-  const { isAuth } = useSelector((state) => state.auth);
+  const { isAuth, user } = useSelector((state) => state.auth);
   const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (!isAuth) {
+    if (name.length === 0 || email.length === 0 || message.length === 0) {
+      toast.error("Enter All data");
+      return;
+    }
+    if (isAuth || user?.length === 0) {
       toast.error("You must be logged in");
       setTimeout(() => {
         navigate("/login");
@@ -151,6 +156,8 @@ const ProductDetailsUi = ({ product }) => {
                       </li>
                     </ul>
                   </div>
+
+                  <Comments id={product.id} />
                 </div>
               </div>
             </div>

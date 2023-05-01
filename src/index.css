@@ -211,3 +211,11 @@ body::-webkit-scrollbar {
     font-family: var(--heading-font);
     font-weight: 800;
 }
+
+.content-head {
+    margin-bottom: 25px;
+    font-size: 20px;
+    font-weight: 700;
+    border-left: 2px solid var(--main-color);
+    padding-left: 10px;
+}

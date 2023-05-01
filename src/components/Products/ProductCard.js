@@ -10,7 +10,6 @@ import { addItem } from "../../state/cartSlice";
 import Swal from "sweetalert2";
 import { Link } from "react-router-dom";
 import { LazyLoadImage } from "react-lazy-load-image-component";
-import news from "../../assets/news_1.webp";
 
 const ProductCard = ({ product, grid }) => {
   const dispatch = useDispatch();
@@ -30,7 +29,11 @@ const ProductCard = ({ product, grid }) => {
     >
       <div className="card card-product">
         <Link className="top-card" to={`/products/${product.id}`}>
-          <LazyLoadImage alt="Logo" src={news} effect="opacity" />
+          <LazyLoadImage
+            alt="Logo"
+            src={product.original_image}
+            effect="opacity"
+          />
           <ul className="product-detail">
             <li>
               <BiLocationPlus />
