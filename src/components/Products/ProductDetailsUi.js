@@ -12,6 +12,8 @@ import { toast } from "react-toastify";
 import { useEffect } from "react";
 import { useNavigate } from "react-router";
 import Comments from "../Comments/Comments";
+import AddComments from "../Comments/AddComments";
+
 const ProductDetailsUi = ({ product }) => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -158,6 +160,7 @@ const ProductDetailsUi = ({ product }) => {
                   </div>
 
                   <Comments id={product.id} />
+                  <AddComments id={product.id} />
                 </div>
               </div>
             </div>
