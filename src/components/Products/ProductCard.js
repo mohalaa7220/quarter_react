@@ -10,6 +10,7 @@ import { addItem } from "../../state/cartSlice";
 import Swal from "sweetalert2";
 import { Link } from "react-router-dom";
 import { LazyLoadImage } from "react-lazy-load-image-component";
+import defaultImage from "../../assets/default-placeholder.png";
 
 const ProductCard = ({ product, grid }) => {
   const dispatch = useDispatch();
@@ -36,7 +37,7 @@ const ProductCard = ({ product, grid }) => {
         <Link className="top-card" to={`/products/${product.id}`}>
           <LazyLoadImage
             alt="Logo"
-            src={product.original_image}
+            src={product.original_image ? product.original_image : defaultImage}
             effect="opacity"
           />
           <ul className="product-detail">
