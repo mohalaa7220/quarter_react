@@ -2,7 +2,6 @@ import { useState } from "react";
 import "./product_details.css";
 import { MdDateRange } from "react-icons/md";
 import { FaRegCommentDots } from "react-icons/fa";
-import { BiBed } from "react-icons/bi";
 import { BsCheck } from "react-icons/bs";
 import Moment from "react-moment";
 import BookProduct from "../BookProduct";
@@ -15,15 +14,18 @@ import Comments from "../Comments/Comments";
 import AddComments from "../Comments/AddComments";
 
 const ProductDetailsUi = ({ product }) => {
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
-  const dispatch = useDispatch();
+
   const messageUpload = useSelector((state) => state.products.message);
   const { loadingBook } = useSelector((state) => state.products);
   const { isAuth, user } = useSelector((state) => state.auth);
-  const navigate = useNavigate();
 
+  // Handle Book
   const handleSubmit = (e) => {
     e.preventDefault();
     if (name.length === 0 || email.length === 0 || message.length === 0) {
@@ -132,30 +134,16 @@ const ProductDetailsUi = ({ product }) => {
                     </div>
                   </div>
 
-                  {/* <!-- Facts and Features --> */}
-                  <div className="facts_features">
-                    <h4 className="content-head">Facts and Features</h4>
-                    <ul className="facts_features_list">
-                      <li>
-                        <div className="feature-list-item">
-                          <BiBed />
-                          <div className="item-desc">
-                            <h6>Living Room</h6>
-                            <small>20 x 16 sq feet</small>
-                          </div>
-                        </div>
-                      </li>
-                    </ul>
-                  </div>
-
                   {/* <!-- Amenities --> */}
                   <div className="amenities">
                     <h4 className="content-head">Amenities</h4>
                     <ul className="amenities_list">
-                      <li>
-                        <BsCheck />
-                        <span>Air Conditioning</span>
-                      </li>
+                      {product?.amenities.map((item) => (
+                        <li key={item.id}>
+                          <BsCheck />
+                          <span>{item.name}</span>
+                        </li>
+                      ))}
                     </ul>
                   </div>
 
