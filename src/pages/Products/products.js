@@ -106,7 +106,6 @@ const Products = () => {
               </div>
             </div>
           </div>
-
           <Paginate pageCount={pageCount} handlePageClick={handlePageClick} />
         </div>
       </section>
