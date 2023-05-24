@@ -17,7 +17,7 @@ const Checkout = () => {
   const totalItem = useSelector(selectCartTotal);
   const totalQuantity = useSelector(selectCartItemCount);
 
-  const cartProductIds = cartProduct.map((item) => String(item.id));
+  const cartProductIds = cartProduct?.map((item) => String(item.id));
 
   const [personalInfo, setPersonalInfo] = useState({
     name: "",

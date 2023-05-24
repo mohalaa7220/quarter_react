@@ -80,33 +80,41 @@ const Products = () => {
                 </button>
               </div>
             </div>
+            {loading ? (
+              <SkeletonLoading />
+            ) : (
+              <>
+                {/* Filters */}
+                <div className="col-lg-3">
+                  <div className="widget">
+                    <StateFilters state={state} setState={setState} />
+                    <AmenitiesFilters
+                      selectedOptions={selectedOptions}
+                      setSelectedOptions={setSelectedOptions}
+                    />
+                    <PriceFilters price={price} setPrice={setPrice} />
+                  </div>
+                </div>
 
-            {/* Filters */}
-            <div className="col-lg-3">
-              <div className="widget">
-                <StateFilters state={state} setState={setState} />
-                <AmenitiesFilters
-                  selectedOptions={selectedOptions}
-                  setSelectedOptions={setSelectedOptions}
+                {/* Products */}
+                <div className="col-lg-9">
+                  <div className="row">
+                    {loading ? (
+                      <SkeletonLoading />
+                    ) : (
+                      <Suspense fallback={<SkeletonLoading />}>
+                        <ProductsParent data={data} />
+                      </Suspense>
+                    )}
+                  </div>
+                </div>
+                <Paginate
+                  pageCount={pageCount}
+                  handlePageClick={handlePageClick}
                 />
-                <PriceFilters price={price} setPrice={setPrice} />
-              </div>
-            </div>
-
-            {/* Products */}
-            <div className="col-lg-9">
-              <div className="row">
-                {loading ? (
-                  <SkeletonLoading />
-                ) : (
-                  <Suspense fallback={<SkeletonLoading />}>
-                    <ProductsParent data={data} />
-                  </Suspense>
-                )}
-              </div>
-            </div>
+              </>
+            )}
           </div>
-          <Paginate pageCount={pageCount} handlePageClick={handlePageClick} />
         </div>
       </section>
     </>
