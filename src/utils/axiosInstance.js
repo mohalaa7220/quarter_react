@@ -2,8 +2,8 @@ import axios from "axios";
 import Cookies from "js-cookie";
 
 const axiosInstance = axios.create({
-  baseURL: "https://quarter-d8b3.onrender.com/api/",
-  // baseURL: "http://127.0.0.1:8000/api/",
+  // baseURL: "https://quarter-d8b3.onrender.com/api/",
+  baseURL: "http://127.0.0.1:8000/api/",
 });
 
 axiosInstance.interceptors.request.use((config) => {

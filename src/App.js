@@ -10,6 +10,7 @@ import CartSlide from "./components/CartSlide/CartSlide";
 import { useState } from "react";
 import HeaderTop from "./components/Header/HeaderTop";
 import Cart from "./pages/Cart/cart";
+import Checkout from "./pages/Checkout/Checkout";
 
 const App = () => {
   const [right, setRight] = useState(false);
@@ -23,6 +24,7 @@ const App = () => {
         <Route path="/products" element={<Products />} />
         <Route path="/products/:productId" element={<ProductDetails />} />
         <Route path="/cart" element={<Cart />} />
+        <Route path="/checkout" element={<Checkout />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
       </Routes>

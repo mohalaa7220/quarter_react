@@ -4,6 +4,7 @@ import pagination from "./pagination";
 import cart from "./cartSlice";
 import auth from "./authSlice";
 import comments from "./commentsSlice";
+import checkoutSlice from "./checkoutSlice";
 
 export const store = configureStore({
   reducer: {
@@ -12,5 +13,6 @@ export const store = configureStore({
     cart,
     auth,
     comments,
+    checkoutSlice,
   },
 });

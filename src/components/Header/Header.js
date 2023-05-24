@@ -83,7 +83,7 @@ const Header = ({ right, setRight }) => {
                     </Link>
                   </li>
                   <li>
-                    <Link className="dropdown-item" to="/">
+                    <Link className="dropdown-item" to="/checkout">
                       Checkout
                     </Link>
                   </li>
