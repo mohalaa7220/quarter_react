@@ -11,10 +11,10 @@ const Profile = () => {
       <section className="profile mb-5 pt-7">
         <div className="container">
           <div class="card text-center">
-            <LazyLoadImage src={me} alt={user.name} effect="blur" />
+            <LazyLoadImage src={me} alt={user?.name} effect="blur" />
             <div class="card-body">
-              <h5 class="card-title">{user.name}</h5>
-              <p class="card-text">{user.email}</p>
+              <h5 class="card-title">{user?.name}</h5>
+              <p class="card-text">{user?.email}</p>
             </div>
           </div>
         </div>
