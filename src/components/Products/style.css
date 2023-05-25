@@ -87,6 +87,9 @@ ul.product-detail>li h6 {
 
 .card-product .card-title {
     font-weight: 800;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
 }
 
 .card-product ul.desc-flat {

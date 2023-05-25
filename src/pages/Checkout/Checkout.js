@@ -8,10 +8,13 @@ import { useDispatch, useSelector } from "react-redux";
 import { selectCartItemCount, selectCartTotal } from "../../state/cartSlice";
 import { addOrderItem } from "../../state/checkoutSlice";
 import { toast } from "react-toastify";
+import { useNavigate } from "react-router";
 
 const Checkout = () => {
   const dispatch = useDispatch();
   const { loading, message } = useSelector((state) => state.checkoutSlice);
+  const { isAuth, user } = useSelector((state) => state.auth);
+  const navigate = useNavigate();
 
   const cartProduct = JSON.parse(localStorage.getItem("cart"));
   const totalItem = useSelector(selectCartTotal);
@@ -36,6 +39,13 @@ const Checkout = () => {
 
   const handleOrder = (e) => {
     e.preventDefault();
+    if (isAuth || user?.length === 0) {
+      toast.error("You must be logged in");
+      setTimeout(() => {
+        navigate("/login");
+      }, 1300);
+      return;
+    }
     dispatch(addOrderItem(personalInfo));
   };
 

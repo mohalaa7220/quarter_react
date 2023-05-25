@@ -1,0 +1,70 @@
+.testimonial {
+    background-image: url(../../assets/test_back.jpg);
+    background-size: auto;
+    background-position: top center;
+    background-repeat: no-repeat;
+}
+
+.testimonial .card {
+    border: none;
+    background: #ffffff;
+    padding: 2rem;
+    box-shadow: rgba(17, 17, 26, 0.1) 0px 0px 16px;
+    margin-bottom: 1.5rem;
+}
+
+.testimonial .card::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0%;
+    height: 3px;
+    transition: var(--transition);
+    background-color: var(--main-color);
+}
+
+.testimonial .card:hover::after {
+    width: 100%;
+}
+
+.info_testimonial svg {
+    color: var(--paragraph-color);
+    font-size: 2.5rem;
+}
+
+.info_testimonial p {
+    color: var(--paragraph-color);
+    margin: 0;
+    margin-top: 10px;
+    line-height: 1.7;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.testimonial .card-footer {
+    display: flex;
+    align-items: center;
+    padding: 0;
+    background-color: transparent;
+    border: none;
+    margin-top: 1.1rem;
+}
+
+.testimonial .card-footer img {
+    max-width: 60px;
+    margin-right: 15px;
+    margin-bottom: 0;
+    border-radius: 50%;
+}
+
+.testimonial .card-footer .customer h6 {
+    font-weight: bold;
+    margin-bottom: 0;
+}
+
+.testimonial .card-footer .customer span {
+    color: var(--paragraph-color);
+}
