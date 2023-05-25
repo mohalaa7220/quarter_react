@@ -11,6 +11,7 @@ import { useState } from "react";
 import HeaderTop from "./components/Header/HeaderTop";
 import Cart from "./pages/Cart/cart";
 import Checkout from "./pages/Checkout/Checkout";
+import Profile from "./pages/Profile/Profile";
 
 const App = () => {
   const [right, setRight] = useState(false);
@@ -27,6 +28,7 @@ const App = () => {
         <Route path="/checkout" element={<Checkout />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
+        <Route path="/profile" element={<Profile />} />
       </Routes>
     </Router>
   );
