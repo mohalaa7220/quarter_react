@@ -1,7 +1,11 @@
 import React from "react";
-
+import Breadcrumb from "../../components/Breadcrumb/Breadcrumb";
 const Register = () => {
-  return <div>Register</div>;
+  return (
+    <>
+      <Breadcrumb title="Register" />
+    </>
+  );
 };
 
 export default Register;
