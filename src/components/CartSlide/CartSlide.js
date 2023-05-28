@@ -21,7 +21,7 @@ const CartSlide = ({ right, setRight }) => {
           <div className="card-cart" key={product.id}>
             <LazyLoadImage src={product.img} alt={product.name} effect="blur" />
             <div className="info">
-              <a href="product_details.html">{product.name}</a>
+              <Link to={`/products/${product.id}`}>{product.name}</Link>
               <span className="total">
                 {product.quantity} x ${product.price}
               </span>
