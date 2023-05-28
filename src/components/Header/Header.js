@@ -1,5 +1,5 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { AiOutlineUser, AiOutlineShoppingCart } from "react-icons/ai";
 import { BiMenuAltRight } from "react-icons/bi";
 import logo from "../..//assets/logo.png";
@@ -7,12 +7,15 @@ import "./style.css";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { selectCartItemCount } from "../../state/cartSlice";
-
+import { AiOutlineClose } from "react-icons/ai";
 const Header = ({ right, setRight }) => {
   const [itemCount, setItemCount] = useState(0);
   const [activeBack, setActiveBack] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
   const cartItemCount = useSelector(selectCartItemCount);
   const { user, isAuth } = useSelector((state) => state.auth);
+
+  console.log(menuOpen);
 
   const changeBackground = () => {
     if (window.scrollY >= 66) {
@@ -45,7 +48,10 @@ const Header = ({ right, setRight }) => {
             </a>
           </div>
 
-          <div className="col menu">
+          <div className={menuOpen ? "col menu" : "col_menu"}>
+            <div className="close_menu" onClick={() => setMenuOpen(!menuOpen)}>
+              <AiOutlineClose />
+            </div>
             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
               <li className="sub-logo">
                 <Link className="navbar-brand" to="/">
@@ -154,7 +160,11 @@ const Header = ({ right, setRight }) => {
                 <AiOutlineShoppingCart />
                 <span>{itemCount}</span>
               </div>
-              <div className="menu-icon" id="menu-icon">
+              <div
+                className="menu-icon"
+                id="menu-icon"
+                onClick={() => setMenuOpen(!menuOpen)}
+              >
                 <BiMenuAltRight />
               </div>
             </div>
@@ -165,4 +175,4 @@ const Header = ({ right, setRight }) => {
   );
 };
 
-export default Header;
+export default React.memo(Header);

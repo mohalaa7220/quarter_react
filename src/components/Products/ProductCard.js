@@ -21,7 +21,7 @@ const ProductCard = ({ product, grid }) => {
         id: product.id,
         name: product.name,
         price: product.price,
-        img: product.original_image,
+        img: product.image_url,
       })
     );
     Swal.fire(`${product.name} to cart`);

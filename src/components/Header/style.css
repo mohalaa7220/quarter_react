@@ -105,7 +105,7 @@
     box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
     cursor: pointer;
     transition: all .3s linear;
-    color: var(--gray);
+    color: var(--paragraph-color);
 }
 
 .header-right>div svg {
@@ -157,7 +157,7 @@
         margin-bottom: 3rem;
     }
     .menu {
-        display: none;
+        display: block;
         left: 0;
         right: auto;
         top: 0;
@@ -173,11 +173,14 @@
     ul.navbar-nav {
         flex-direction: column !important;
     }
-    .navbar .nav-item {
-        margin-bottom: .75rem;
-    }
     #menu-icon {
         display: block;
+    }
+    .close_menu {
+        display: block !important;
+    }
+    .col_menu {
+        display: none !important;
     }
 }
 
@@ -257,4 +260,23 @@
 
 .social svg {
     margin-right: 7px;
+}
+
+.close_menu {
+    text-align: right;
+    margin-bottom: 2rem;
+    width: 100%;
+    padding: .5rem 1.5rem;
+    display: none;
+}
+
+.close_menu svg {
+    color: var(--paragraph-color);
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+}
+
+.col_menu {
+    flex: 1;
 }
