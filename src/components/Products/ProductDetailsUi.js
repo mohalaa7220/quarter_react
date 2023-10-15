@@ -40,7 +40,10 @@ const ProductDetailsUi = ({ product }) => {
       return;
     }
     dispatch(
-      fetchBookProduct({ id: product.id, formData: { name, email, message } })
+      fetchBookProduct({
+        id: product.id,
+        formData: { product: product.id, name, email, message },
+      })
     );
   };
 

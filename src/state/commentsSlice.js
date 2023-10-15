@@ -4,13 +4,16 @@ import axiosInstance from "../utils/axiosInstance";
 export const AddComment = createAsyncThunk(
   "addComments",
   async ({ id, formData }) => {
-    const response = await axiosInstance.post(`comments/${id}`, formData);
+    const response = await axiosInstance.post(
+      `comments_product/${id}`,
+      formData
+    );
     return response.data;
   }
 );
 
 export const fetchComments = createAsyncThunk("fetchComments", async (id) => {
-  const response = await axiosInstance.get(`comments/${id}`);
+  const response = await axiosInstance.get(`comments_product/${id}`);
   return response.data;
 });
 

@@ -29,7 +29,7 @@ const AddComments = ({ id }) => {
       }, 1500);
       return;
     }
-    dispatch(AddComment({ id: id, formData: { text, rating } }));
+    dispatch(AddComment({ id: id, formData: { text, rating, product: id } }));
   };
 
   useEffect(() => {

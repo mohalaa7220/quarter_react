@@ -12,7 +12,7 @@ const Testimonials = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axiosInstance("comments/testimonials/");
+        const response = await axiosInstance("/testimonials/");
         const data = await response.data;
         setTestimonial(data);
         setIsLoading(false);
