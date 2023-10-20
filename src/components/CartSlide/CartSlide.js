@@ -38,7 +38,7 @@ const CartSlide = ({ right, setRight }) => {
         <Link className="btn2" to="/cart">
           View Cart
         </Link>
-        <Link className="btn2" to="/cart">
+        <Link className="btn2" to="/checkout">
           CheckOut
         </Link>
       </div>

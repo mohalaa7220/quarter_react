@@ -15,7 +15,7 @@ const Login = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    dispatch(LoginAuth({ email: "admin@gmail.com", password: "123456" }));
+    dispatch(LoginAuth({ email, password }));
   };
 
   useEffect(() => {
@@ -49,7 +49,7 @@ const Login = () => {
                     type="email"
                     name="email"
                     placeholder="Email*"
-                    value={"admin@gmail.com"}
+                    value={email}
                     onChange={(e) => {
                       setEmail(e.target.value);
                     }}
@@ -58,7 +58,7 @@ const Login = () => {
                     type="password"
                     name="password"
                     placeholder="Password*"
-                    value={"123456"}
+                    value={password}
                     onChange={(e) => {
                       setPassword(e.target.value);
                     }}

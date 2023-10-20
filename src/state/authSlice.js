@@ -9,6 +9,14 @@ export const LoginAuth = createAsyncThunk("auth/login", async (formData) => {
   return response.data;
 });
 
+export const RegisterAuth = createAsyncThunk(
+  "auth/signup",
+  async (formData) => {
+    const response = await axiosInstance.post(`auth/signup`, formData);
+    return response.data;
+  }
+);
+
 export const userProfile = createAsyncThunk("auth/profile", async () => {
   const response = await axiosInstance.get("auth/profile");
   return response.data;
@@ -20,7 +28,10 @@ const authSlice = createSlice({
     error: null,
     loading: false,
     message: null,
+    messageRegister: null,
+    loadingRegister: false,
     isAuth: false,
+    isRegister: false,
     userProfileData: {},
     user: isBrowser && Cookies.get("token") ? Cookies.get("token") : [],
     token: isBrowser && Cookies.get("token") ? Cookies.get("token") : null,
@@ -43,6 +54,18 @@ const authSlice = createSlice({
       .addCase(LoginAuth.rejected, (state, action) => {
         state.loading = false;
         state.error = action.error.message;
+      })
+
+      .addCase(RegisterAuth.pending, (state) => {
+        state.loadingRegister = true;
+      })
+      .addCase(RegisterAuth.fulfilled, (state, action) => {
+        state.loadingRegister = false;
+        state.isRegister = true;
+        state.messageRegister = action.payload.message;
+      })
+      .addCase(RegisterAuth.rejected, (state, action) => {
+        state.loadingRegister = false;
       })
 
       .addCase(userProfile.pending, (state) => {
