@@ -26,6 +26,7 @@ const PersonalInformationForm = ({ personalInfo, setPersonalInfo }) => {
             type="email"
             id="email"
             name="email"
+            placeholder="Email"
             value={personalInfo?.email}
             onChange={handleChange}
           />
@@ -47,11 +48,9 @@ const PersonalInformationForm = ({ personalInfo, setPersonalInfo }) => {
             value={personalInfo?.country}
             onChange={handleChange}
           >
-            <option value="Country" disabled className="d-none">
-              Country
-            </option>
+            <option value="Country">Country</option>
             <option value="Egypt">Egypt</option>
-            <option value="SKA">SKA</option>
+            <option value="ALG">ALG</option>
             <option value="USA">USA</option>
           </select>
         </div>

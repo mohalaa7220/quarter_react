@@ -6,7 +6,7 @@ import AddressForm from "../../components/Checkout/AddressForm";
 import CartTotals from "../../components/Checkout/CartTotals";
 import { useDispatch, useSelector } from "react-redux";
 import { selectCartItemCount, selectCartTotal } from "../../state/cartSlice";
-import { addOrderItem } from "../../state/checkoutSlice";
+import { addOrderItem, clearCheckoutMessage } from "../../state/checkoutSlice";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router";
 
@@ -52,8 +52,16 @@ const Checkout = () => {
   useEffect(() => {
     if (message) {
       toast.success(message);
+
+      const timer = setTimeout(() => {
+        dispatch(clearCheckoutMessage());
+      }, 2000);
+
+      return () => {
+        clearTimeout(timer);
+      };
     }
-  }, [message]);
+  }, [message, dispatch]);
 
   return (
     <>

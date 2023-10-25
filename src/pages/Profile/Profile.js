@@ -1,7 +1,7 @@
 import React from "react";
 import Breadcrumb from "../../components/Breadcrumb/Breadcrumb";
 import { LazyLoadImage } from "react-lazy-load-image-component";
-import me from "../../assets/me.png";
+import me from "../../assets/me.webp";
 import "./style.css";
 const Profile = () => {
   const user = JSON.parse(localStorage.getItem("user"));

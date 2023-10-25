@@ -15,7 +15,11 @@ const OrderItemSlice = createSlice({
     loading: false,
     message: null,
   },
-  reducers: {},
+  reducers: {
+    clearCheckoutMessage(state) {
+      state.message = "";
+    },
+  },
   extraReducers: (builder) => {
     builder
       .addCase(addOrderItem.pending, (state) => {
@@ -30,5 +34,6 @@ const OrderItemSlice = createSlice({
       });
   },
 });
+export const { clearCheckoutMessage } = OrderItemSlice.actions;
 
 export default OrderItemSlice.reducer;
