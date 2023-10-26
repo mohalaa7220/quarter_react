@@ -53,7 +53,12 @@ const productsSlice = createSlice({
     count: 0,
     message: null,
   },
-  reducers: {},
+
+  reducers: {
+    clearMessage(state) {
+      state.message = "";
+    },
+  },
   extraReducers: (builder) => {
     builder
       .addCase(fetchProducts.pending, (state) => {
@@ -112,5 +117,6 @@ const productsSlice = createSlice({
       });
   },
 });
+export const { clearMessage } = productsSlice.actions;
 
 export default productsSlice.reducer;

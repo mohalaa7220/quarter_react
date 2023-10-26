@@ -6,7 +6,7 @@ import { BsCheck } from "react-icons/bs";
 import Moment from "react-moment";
 import BookProduct from "../BookProduct";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchBookProduct } from "../../state/productSlice";
+import { fetchBookProduct, clearMessage } from "../../state/productSlice";
 import { toast } from "react-toastify";
 import { useEffect } from "react";
 import { useNavigate } from "react-router";
@@ -49,8 +49,17 @@ const ProductDetailsUi = ({ product }) => {
 
   useEffect(() => {
     if (messageUpload) {
-      toast.success(`${messageUpload}`);
+      toast.success(messageUpload);
+
+      const timer = setTimeout(() => {
+        dispatch(clearMessage());
+      }, 2000);
+
+      return () => {
+        clearTimeout(timer);
+      };
     }
+    console.log(messageUpload);
   }, [messageUpload]);
 
   return (
